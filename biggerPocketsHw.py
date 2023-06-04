@@ -8,35 +8,43 @@ class ROI_Cal():
     *** total invested --- how much you paid to acquire the property.***
     ***annual cash flow --- cash flow on a yearly basis***
     """   
-    def __init__(self, total_income, total_expenses, total_invested):
-        self.total_income = total_income
-        self.total_expenses = total_expenses
-        self.total_invested = total_invested
+    def __init__(self):
+        self.total_income = 0
+        self.total_expenses = 0
+        self.total_invested = 0
+        self.annual_cash = 0
 
     def income_cal(self):
-        inc = int(input(f"input your total revenue that may have been forgotten above, on a monthly basis for one or more properties. "))
-        self.total_income = inc + self.total_income
+        inc = int(input("input your total income on a monthly basis for one or more properties. "))
+        self.total_income = inc
         print(self.total_income)
 
     def exp_cal(self):
-        exp = int(input(f"input your total expenses that may have been forgotten above, on a monthly basis for one or more properties. "))
-        self.total_expenses = exp + self.total_expenses
+        exp = int(input("input your total expenses on a monthly basis for one or more properties. "))
+        self.total_expenses = exp 
         print(self.total_expenses)
 
     def cash_f(self):
         flow = self.total_income - self.total_expenses
-        annual_cash = flow * 12
+        self.annual_cash = flow * 12
         print(flow)
-        print(annual_cash)
+        print(self.annual_cash)
 
     def Roi(self):
-        flow = self.total_income - self.total_expenses
-        annual_cash = flow * 12
-        ROI = annual_cash / self.total_invested 
+        totIn = int(input("input your total invested to acquire the property "))
+        self.total_invested = totIn
+        ROI = self.annual_cash / self.total_invested * 100
         print(f"Your Rate of return for this property portfolio is{ROI}%")
         print(f"The average return of the S&P500 is 10%")
         print(f"The average return of the U.S overall stock market is 8%")
         print(f"the average return of 401Ks and pension funds are 7%")
-    
 
-ROI_Cal(2000, 1550, 50000)
+    def run(self):
+        self.income_cal()
+        self.exp_cal()
+        self.cash_f()
+        self.Roi()
+
+
+myrental = ROI_Cal()
+myrental.run()
