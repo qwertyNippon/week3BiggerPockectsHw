@@ -23,4 +23,15 @@ class ROI_Cal():
         self.total_expenses = exp + self.total_expenses
         print(self.total_expenses)
 
+    def cash_f(self):
+        flow = self.total_income - self.total_expenses
+        annual_cash = flow * 12
+        print(flow)
+        print(annual_cash)
+
+    def Roi(self):
+        
+
+    
+
 ROI_Cal(2000, 1550, 50000)
